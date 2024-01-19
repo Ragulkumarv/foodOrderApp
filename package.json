@@ -1,0 +1,31 @@
+{
+  "name": "foodOrderApp",
+  "version": "1.0.0",
+  "description": "Ragul's react work",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ragulkumarv/foodOrderApp.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Ragul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ragulkumarv/foodOrderApp/issues"
+  },
+  "homepage": "https://github.com/Ragulkumarv/foodOrderApp#README",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
