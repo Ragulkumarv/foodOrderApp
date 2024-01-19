@@ -1,6 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+/*
+header
+ ~ logo
+ ~ nav items
+body
+ ~ search
+ ~ resto card
+footer
+ ~ copyright
+ ~ contact
+ ~ address
+ ~ location
+*/
+
 const JSXHeader = () => <h2 className="title">Welcome to foodOrderApp!!🍕</h2>;
 
 const FuncComp = () => {
