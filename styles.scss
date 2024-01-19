@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  .logoContainer {
+    img {
+      width: 100px;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+  .nav-items {
+    ul {
+      display: flex;
+      font-size: 24px;
+      list-style: none;
+
+      li {
+        padding: 0 10px;
+        margin: 0 10px;
+      }
+    }
+  }
+}
+.body {
+  .search {
+    padding: 10px;
+    .search-input {
+      padding: 10px;
+    }
+  }
+}
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  .card-container {
+    width: 200px;
+    height: 350px;
+    padding: 5px;
+    img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: scale(0.95, 0.95);
+      transform-origin: center center;
+      transition: all 0.1s ease-in 0s;
+    }
+  }
+}
