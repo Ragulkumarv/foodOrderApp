@@ -24,8 +24,12 @@
 .body {
   .search {
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    height: 48px;
     .search-input {
       padding: 10px;
+      width: 860px;
     }
   }
 }
