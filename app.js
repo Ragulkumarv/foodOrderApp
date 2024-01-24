@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import logo from "./images/logo.webp";
-import food_1 from "./images/food_1.avif";
 import "./styles.scss";
 
 /*
