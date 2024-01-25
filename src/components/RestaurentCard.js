@@ -1,3 +1,5 @@
+import { ASSET_PATH } from "../utils/StaticData";
+
 const RestaurentCard = (props) => {
   const { respData } = props;
   const {
@@ -10,13 +12,7 @@ const RestaurentCard = (props) => {
   } = respData?.info;
   return (
     <section className="card-container">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-        alt="res-logo"
-      />
+      <img src={ASSET_PATH + cloudinaryImageId} alt="res-logo" />
       <h1 className="res-name">{name}</h1>
       <div className="ratings-eta">
         <span>{avgRating}</span>
