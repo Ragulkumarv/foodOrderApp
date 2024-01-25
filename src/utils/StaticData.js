@@ -1,24 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import logo from "./images/logo.webp";
-import "./styles.scss";
-
-/*
-header
- ~ logo
- ~ nav items
-body
- ~ search
-  ~ resto container
-    ~ resto card
-    ~ resto name, rating , price, cusine
-footer
- ~ copyright
- ~ contact
- ~ address
- ~ location
-*/
-const dataObj = [
+export const resDataObj = [
   {
     info: {
       id: "50456",
@@ -85,9 +65,9 @@ const dataObj = [
       areaName: "RS Puram",
       costForTwo: "₹400 for two",
       cuisines: ["Pizzas"],
-      avgRating: 4.2,
+      avgRating: 3.2,
       parentId: "721",
-      avgRatingString: "4.2",
+      avgRatingString: "3.2",
       totalRatingsString: "10K+",
       sla: {
         deliveryTime: 36,
@@ -201,9 +181,9 @@ const dataObj = [
       areaName: "Nehru Stadium",
       costForTwo: "₹200 for two",
       cuisines: ["Indian", "Chinese", "Arabian", "Tandoor", "Juices"],
-      avgRating: 4.4,
+      avgRating: 3.4,
       parentId: "4907",
-      avgRatingString: "4.4",
+      avgRatingString: "3.4",
       totalRatingsString: "10K+",
       sla: {
         deliveryTime: 29,
@@ -355,9 +335,9 @@ const dataObj = [
         "Italian",
         "Turkish",
       ],
-      avgRating: 4.2,
+      avgRating: 2.2,
       parentId: "468195",
-      avgRatingString: "4.2",
+      avgRatingString: "2.2",
       totalRatingsString: "1K+",
       sla: {
         deliveryTime: 35,
@@ -868,10 +848,10 @@ const dataObj = [
       areaName: "Peelamedu",
       costForTwo: "₹200 for two",
       cuisines: ["South Indian", "Chinese", "North Indian"],
-      avgRating: 4.5,
+      avgRating: 3.5,
       veg: true,
       parentId: "7115",
-      avgRatingString: "4.5",
+      avgRatingString: "3.5",
       totalRatingsString: "10K+",
       sla: {
         deliveryTime: 34,
@@ -1060,9 +1040,9 @@ const dataObj = [
       areaName: "Saibaba Colony",
       costForTwo: "₹250 for two",
       cuisines: ["Bakery", "Continental", "Italian"],
-      avgRating: 4.5,
+      avgRating: 1.5,
       parentId: "22417",
-      avgRatingString: "4.5",
+      avgRatingString: "1.5",
       totalRatingsString: "1K+",
       sla: {
         deliveryTime: 29,
@@ -1185,9 +1165,9 @@ const dataObj = [
       areaName: "RS Puram",
       costForTwo: "₹140 for two",
       cuisines: ["Desserts", "Ice Cream", "Bakery"],
-      avgRating: 4.2,
+      avgRating: 3.2,
       parentId: "2420",
-      avgRatingString: "4.2",
+      avgRatingString: "3.2",
       totalRatingsString: "100+",
       sla: {
         deliveryTime: 31,
@@ -1321,83 +1301,3 @@ const dataObj = [
     },
   },
 ];
-
-const Header = () => {
-  return (
-    <header className="header">
-      <section className="logoContainer">
-        <img src={logo} alt="logo" />
-      </section>
-      <section className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </section>
-    </header>
-  );
-};
-const RestaurentCard = (props) => {
-  const { respData } = props;
-  const {
-    cloudinaryImageId,
-    name,
-    avgRating,
-    deliveryTime,
-    cuisines,
-    locality,
-  } = respData?.info;
-  return (
-    <section className="card-container">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-        alt="res-logo"
-      />
-      <h1 className="res-name">{name}</h1>
-      <div className="ratings-eta">
-        <span>{avgRating}</span>
-        <span>{deliveryTime}</span>
-      </div>
-      <div className="cuisine">{cuisines.join(", ")}</div>
-      <div className="location">{locality}</div>
-    </section>
-  );
-};
-const Body = () => {
-  return (
-    <section className="body">
-      <div className="search">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search for restaurants and food"
-        />
-      </div>
-      <div className="res-container">
-        {dataObj.map((restaurent) => {
-          return (
-            <RestaurentCard respData={restaurent} key={restaurent.info.id} />
-          );
-        })}
-      </div>
-    </section>
-  );
-};
-
-const App = () => {
-  return (
-    <div className="container">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<App />);
