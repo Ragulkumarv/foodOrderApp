@@ -27,6 +27,9 @@
     display: flex;
     justify-content: center;
     height: 48px;
+    .filter-btn {
+      cursor: pointer;
+    }
     .search-input {
       padding: 10px;
       width: 860px;

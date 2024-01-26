@@ -1,4 +1,4 @@
-import { ASSET_PATH } from "../utils/StaticData";
+import { ASSET_PATH } from "../utils/staticData";
 
 const RestaurentCard = (props) => {
   const { respData } = props;
