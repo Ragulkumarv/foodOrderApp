@@ -2,9 +2,9 @@ const ContactUs = () => {
   return (
     <div>
       <h4>
-        Get In <b>Touch</b>{" "}
+        Get In <b>Touch</b>
       </h4>
-      <h2>Head Office</h2>{" "}
+      <h2>Head Office</h2>
       <p>
         <b>Bundl Technologies Pvt. Ltd.</b> <br />
         No. 55 Sy No 8 to 14 I & J Block - Ground Floor, Embassy Tech Village |
