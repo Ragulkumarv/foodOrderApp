@@ -1,4 +1,5 @@
 import { ASSET_PATH } from "../utils/staticData";
+import { MdStars } from "react-icons/md";
 
 const RestaurentCard = (props) => {
   const { respData } = props;
@@ -9,7 +10,11 @@ const RestaurentCard = (props) => {
       <img src={ASSET_PATH + cloudinaryImageId} alt="res-logo" />
       <h1 className="res-name">{name}</h1>
       <div className="ratings-eta">
-        <span>{avgRating}</span>&nbsp; • &nbsp;<span>{sla?.slaString}</span>
+        <span>
+          <MdStars color={avgRating > 4.3 ? "Green" : "Orange"} size={20} />
+          {avgRating}
+        </span>
+        &nbsp; • &nbsp;<span>{sla?.slaString}</span>
       </div>
       <div className="cuisine">{cuisines.join(", ")}</div>
       <div className="location">{locality}</div>
