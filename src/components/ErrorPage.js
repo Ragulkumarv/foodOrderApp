@@ -5,7 +5,7 @@ const ErrorPage = () => {
   console.log(error);
   return (
     <div>
-      <h1>OOPS!!!!!!</h1>
+      <h1>OOPS!!!!!! </h1>
       <h2>
         {error.status} - {error.statusText}
       </h2>

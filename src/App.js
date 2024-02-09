@@ -12,6 +12,7 @@ import {
 import ContactUs from "./components/ContactUs";
 import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 /*
 header
@@ -70,6 +71,10 @@ const appRoute = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs />,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <ErrorPage />,
