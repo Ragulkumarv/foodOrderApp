@@ -7,7 +7,7 @@ import {
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../utils/staticData";
-import ShimmerLoader from "./ShimmerLoader";
+import { MenuShimmer } from "./Shimmer";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
@@ -55,7 +55,7 @@ const RestaurantMenu = () => {
   }
 
   return !restaurant ? (
-    <ShimmerLoader />
+    <MenuShimmer />
   ) : (
     <div className="restaurant-menu">
       <div className="restaurant-summary">

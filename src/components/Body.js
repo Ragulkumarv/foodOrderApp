@@ -2,7 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import { API_URL } from "../utils/staticData";
 import { useEffect, useState } from "react";
 import filteredData from "../utils/config";
-import ShimmerLoader from "./ShimmerLoader";
+import ShimmerLoader from "./Shimmer";
 import { Link } from "react-router-dom";
 
 const Body = () => {
