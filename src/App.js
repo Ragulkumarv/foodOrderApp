@@ -1,4 +1,4 @@
-import React, { StrictMode } from "react";
+import React, { StrictMode, Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,10 +9,14 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import ContactUs from "./components/ContactUs";
-import About from "./components/About";
+// import ContactUs from "./components/ContactUs";
+// import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
-import RestaurantMenu from "./components/RestaurantMenu";
+// import RestaurantMenu from "./components/RestaurantMenu";
+
+const ContactUs = lazy(() => import("./components/ContactUs"));
+const About = lazy(() => import("./components/About"));
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 
 /*
 header
@@ -66,15 +70,27 @@ const appRoute = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <ContactUs />,
+        element: (
+          <Suspense>
+            <ContactUs />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
     ],
     errorElement: <ErrorPage />,
