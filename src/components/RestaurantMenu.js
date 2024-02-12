@@ -17,7 +17,7 @@ const RestaurantMenu = () => {
     getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
   }, []);
 
-  async function getRestaurantInfo() {
+  const getRestaurantInfo = async () => {
     try {
       const response = await fetch(swiggy_menu_api_URL + resId);
       const json = await response.json();
@@ -52,7 +52,7 @@ const RestaurantMenu = () => {
       setRestaurant(null);
       console.log(error);
     }
-  }
+  };
 
   return !restaurant ? (
     <MenuShimmer />
