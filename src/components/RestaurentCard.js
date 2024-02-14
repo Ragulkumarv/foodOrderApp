@@ -6,8 +6,12 @@ const RestaurentCard = (props) => {
   const { cloudinaryImageId, name, avgRating, sla, cuisines, locality } =
     respData?.info;
   return (
-    <section className="card-container">
-      <img src={ASSET_PATH + cloudinaryImageId} alt="res-logo" />
+    <section className="card-container w-[280px] h-[450px] p-1">
+      <img
+        src={ASSET_PATH + cloudinaryImageId}
+        alt="res-logo"
+        className="w-full h-1/2 object-fill rounded-2xl hover:scale-90"
+      />
       <h1 className="res-name">{name}</h1>
       <div className="ratings-eta">
         <span>

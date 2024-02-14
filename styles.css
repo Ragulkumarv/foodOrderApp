@@ -1,4 +1,8 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
   --header-bg-color: rgb(1, 163, 144);
   --footer-bg-color: rgb(1, 163, 144);
   --body-bg-color: #e3e3e3;
@@ -89,7 +93,7 @@
 }
 
 /* Restaurant Menu CSS Start */
-.restaurant-menu {
+/* .restaurant-menu {
   margin-top: 80px;
   min-height: 80vh;
   width: auto;
@@ -229,5 +233,5 @@
   margin-top: 10px;
   border-radius: 5px;
 }
-
-/* Restaurant Menu End Start */
+*/
+/*Restaurant Menu End Start */

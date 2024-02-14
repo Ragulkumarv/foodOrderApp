@@ -37,10 +37,10 @@ const Body = () => {
   ) : (
     <>
       <section className="body">
-        <div className="search">
+        <div className="search flex justify-center  p-3 ">
           <input
             type="text"
-            className="search-input"
+            className="search-input p-3 w-1/3 h-12 border-solid border"
             placeholder="Search for restaurants and food"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -50,7 +50,7 @@ const Body = () => {
             }}
           />
         </div>
-        <div className="res-container">
+        <div className="res-container flex flex-wrap gap-5 justify-center">
           {filteredRestaurant?.map((restaurent) => {
             return (
               <Link

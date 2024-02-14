@@ -2,7 +2,7 @@ import React, { StrictMode, Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import "../styles.scss";
+import "../styles.css";
 import {
   BrowserRouter,
   createBrowserRouter,
@@ -36,7 +36,7 @@ footer
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="">
       <Header />
       <Outlet />
     </div>
