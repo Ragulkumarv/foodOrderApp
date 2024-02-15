@@ -57,19 +57,23 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <MenuShimmer />
   ) : (
-    <div className="restaurant-menu">
-      <div className="restaurant-summary">
+    <div className="restaurant-menu w-auto min-h-[80dvh] mt-20">
+      <div className="restaurant-summary flex justify-center items-center h-[200px] bg-slate-700 text-white">
         <img
-          className="restaurant-img"
+          className="restaurant-img w-64 h-[200px] rounded-md"
           src={IMG_CDN_URL + restaurant?.cloudinaryImageId}
           alt={restaurant?.name}
         />
-        <div className="restaurant-summary-details">
-          <h2 className="restaurant-title">{restaurant?.name}</h2>
-          <p className="restaurant-tags">{restaurant?.cuisines?.join(", ")}</p>
-          <div className="restaurant-details">
+        <div className="restaurant-summary-details flex flex-col m-5 basis-[520px]">
+          <h2 className="restaurant-title text-[40px] font-light max-w-[540px]">
+            {restaurant?.name}
+          </h2>
+          <p className="restaurant-tags max-w-[540px] whitespace-nowrap text-inherit text-sm opacity-70">
+            {restaurant?.cuisines?.join(", ")}
+          </p>
+          <div className="restaurant-details max-w-[340px] flex justify-between items-center text-base font-semibold text-inherit mt-[18px] pb-[10px]">
             <div
-              className="restaurant-rating"
+              className="restaurant-rating flex items-center rounded-md bg-green-700"
               style={
                 restaurant?.avgRating < 4
                   ? { backgroundColor: "var(--light-red)" }
@@ -78,8 +82,10 @@ const RestaurantMenu = () => {
                   : { color: "white" }
               }
             >
-              <i className="fa-solid fa-star"></i>
-              <span>{restaurant?.avgRating}</span>
+              {/* <i className="fa-solid fa-star"></i> */}
+              <span className="w-8 flex justify-center">
+                {restaurant?.avgRating}
+              </span>
             </div>
             <div className="restaurant-rating-slash">|</div>
             <div>{restaurant?.sla?.slaString}</div>
@@ -89,18 +95,23 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      <div className="restaurant-menu-content">
-        <div className="menu-items-container">
-          <div className="menu-title-wrap">
-            <h3 className="menu-title">Recommended</h3>
-            <p className="menu-count">{menuItems.length} ITEMS</p>
+      <div className="restaurant-menu-content flex justify-center">
+        <div className="menu-items-container mt-[30px] w-[800px]">
+          <div className="menu-title-wrap p-5">
+            <h3 className="menu-title ">Recommended</h3>
+            <p className="menu-count mt-[14px] text-base leading-5 tracking-[-0.3]">
+              {menuItems.length} ITEMS
+            </p>
           </div>
-          <div className="menu-items-list">
+          <div className="menu-items-list flex flex-col justify-center">
             {menuItems.map((item) => (
-              <div className="menu-item" key={item?.id}>
-                <div className="menu-item-details">
-                  <h3 className="item-title">{item?.name}</h3>
-                  <p className="item-cost">
+              <div
+                className="menu-item flex justify-between m-h-[250px] p-5 border-b-2"
+                key={item?.id}
+              >
+                <div className="menu-item-details flex flex-col self-start overflow-hidden">
+                  <h3 className="item-title w-3/5">{item?.name}</h3>
+                  <p className="item-cost text-base font-normal mt-1 w-2/5 text-black">
                     {item?.price > 0
                       ? new Intl.NumberFormat("en-IN", {
                           style: "currency",
@@ -108,17 +119,22 @@ const RestaurantMenu = () => {
                         }).format(item?.price / 100)
                       : " "}
                   </p>
-                  <p className="item-desc">{item?.description}</p>
+                  <p className="item-desc w-3/5 text-base mt-[14px] leading-5 tracking-[-0.3] text-gray-500">
+                    {item?.description}
+                  </p>
                 </div>
-                <div className="menu-img-wrapper">
+                <div className="menu-img-wrapper flex justify-center flex-col items-end overflow-hidden w-[200px]">
                   {item?.imageId && (
                     <img
-                      className="menu-item-img"
+                      className="menu-item-img w-[100px] h-[100px] rounded-md"
                       src={ITEM_IMG_CDN_URL + item?.imageId}
                       alt={item?.name}
                     />
                   )}
-                  <button className="add-btn"> ADD +</button>
+                  <button className="add-btn w-[100px] h-[40px] text-sm shadow-2xl rounded-md bg-white text-green-600 border">
+                    {" "}
+                    ADD +
+                  </button>
                 </div>
               </div>
             ))}

@@ -10,18 +10,24 @@ const RestaurentCard = (props) => {
       <img
         src={ASSET_PATH + cloudinaryImageId}
         alt="res-logo"
-        className="w-full h-1/2 object-fill rounded-2xl hover:scale-90"
+        className="w-full h-1/2 object-fill mb-3 rounded-2xl hover:scale-90"
       />
-      <h1 className="res-name">{name}</h1>
-      <div className="ratings-eta">
-        <span>
-          <MdStars color={avgRating > 4.3 ? "Green" : "Orange"} size={20} />
+      <h1 className="text-lg font-bold font-sans">{name}</h1>
+      <div className="flex text-base font-bold">
+        <span className="flex">
+          <MdStars
+            color={avgRating > 4.3 ? "Green" : "Orange"}
+            size={20}
+            className="mr-1 mt-[2px]"
+          />
           {avgRating}
         </span>
         &nbsp; • &nbsp;<span>{sla?.slaString}</span>
       </div>
-      <div className="cuisine">{cuisines.join(", ")}</div>
-      <div className="location">{locality}</div>
+      <div className="cuisine text-base text-gray-400">
+        {cuisines.join(", ")}
+      </div>
+      <div className="location text-base text-gray-400">{locality}</div>
     </section>
   );
 };

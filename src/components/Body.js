@@ -33,22 +33,63 @@ const Body = () => {
   };
 
   return filteredRestaurant?.length === 0 ? (
-    <ShimmerLoader />
+    <>
+      <section className="body">
+        <div className="flex justify-center pb-4">
+          <div className="flex justify-center items-center appearance-none border-2 h-12 p-3 text-stone-900">
+            <input
+              type="text"
+              className="appearance-none bg-transparent px-4 py-2 w-[800px] p-3 focus-visible:outline-none"
+              placeholder="Search for restaurants and food"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              onKeyUp={() => {
+                const filterData = filteredData(searchText, allRestaurants);
+                setFilteredRestaurant(filterData);
+              }}
+            />
+            <button class="flex items-center justify-center px-5">
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <ShimmerLoader />
+    </>
   ) : (
     <>
       <section className="body">
-        <div className="search flex justify-center  p-3 ">
-          <input
-            type="text"
-            className="search-input p-3 w-1/3 h-12 border-solid border"
-            placeholder="Search for restaurants and food"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            onKeyUp={() => {
-              const filterData = filteredData(searchText, allRestaurants);
-              setFilteredRestaurant(filterData);
-            }}
-          />
+        <div className="flex justify-center pb-4">
+          <div className="flex justify-center items-center appearance-none border-2 h-12 p-3 text-stone-900">
+            <input
+              type="text"
+              className="appearance-none bg-transparent px-4 py-2 w-[800px] p-3 focus-visible:outline-none"
+              placeholder="Search for restaurants and food"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              onKeyUp={() => {
+                const filterData = filteredData(searchText, allRestaurants);
+                setFilteredRestaurant(filterData);
+              }}
+            />
+            <button class="flex items-center justify-center px-5">
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
+              </svg>
+            </button>
+          </div>
         </div>
         <div className="res-container flex flex-wrap gap-5 justify-center">
           {filteredRestaurant?.map((restaurent) => {
