@@ -6,7 +6,7 @@ const RestaurentCard = (props) => {
   const { cloudinaryImageId, name, avgRating, sla, cuisines, locality } =
     respData?.info;
   return (
-    <section className="card-container w-[280px] h-[450px] p-1">
+    <section className="card-container w-[280px] h-[400px] p-1 ">
       <img
         src={ASSET_PATH + cloudinaryImageId}
         alt="res-logo"
@@ -30,5 +30,18 @@ const RestaurentCard = (props) => {
       <div className="location text-base text-gray-400">{locality}</div>
     </section>
   );
+};
+
+export const addVegOnlyLabel = (RestaurentCard) => {
+  return (props) => {
+    return (
+      <>
+        <label className="absolute bg-black rounded-lg w-auto text-white text-xs m-1 p-2 z-[1]">
+          VegOnly
+        </label>
+        <RestaurentCard {...props} />
+      </>
+    );
+  };
 };
 export default RestaurentCard;

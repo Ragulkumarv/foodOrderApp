@@ -1,4 +1,4 @@
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, { addVegOnlyLabel } from "./RestaurentCard";
 import { API_URL } from "../utils/staticData";
 import { useEffect, useState } from "react";
 import filteredData from "../utils/config";
@@ -9,6 +9,8 @@ const Body = () => {
   const [allRestaurants, setRestaurantsData] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  const VegOnlyLabel = addVegOnlyLabel(RestaurentCard);
 
   useEffect(() => {
     fetchData();
@@ -91,14 +93,18 @@ const Body = () => {
             </button>
           </div>
         </div>
-        <div className="res-container flex flex-wrap gap-5 justify-center">
+        <div className="res-container flex flex-wrap gap-5 justify-center relative">
           {filteredRestaurant?.map((restaurent) => {
             return (
               <Link
                 key={restaurent.info.id}
                 to={"/restaurant/" + restaurent.info.id}
               >
-                <RestaurentCard respData={restaurent} />
+                {restaurent.info?.veg ? (
+                  <VegOnlyLabel respData={restaurent} />
+                ) : (
+                  <RestaurentCard respData={restaurent} />
+                )}
               </Link>
             );
           })}

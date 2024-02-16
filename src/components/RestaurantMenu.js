@@ -8,11 +8,13 @@ import {
   RESTAURANT_TYPE_KEY,
 } from "../utils/staticData";
 import { MenuShimmer } from "./Shimmer";
+import ItemsList from "./ItemsList";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
   const [restaurant, setRestaurant] = useState(null); // call useState to store the api data in res
   const [menuItems, setMenuItems] = useState([]);
+
   useEffect(() => {
     getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
   }, []);
@@ -31,22 +33,21 @@ const RestaurantMenu = () => {
       setRestaurant(restaurantData);
 
       // Set menu item data
-      const menuItemsData =
-        json?.data?.cards
-          .find((x) => x.groupedCard)
-          ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((x) => x.card?.card)
-          ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY)
-          ?.map((x) => x.itemCards)
-          .flat()
-          .map((x) => x.card?.info) || [];
+      const menuItemsData = json?.data?.cards
+        .find((x) => x.groupedCard)
+        ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((x) => x.card?.card)
+        ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY);
+      // ?.map((x) => x.itemCards)
+      // .flat()
+      // .map((x) => x.card?.info) || [];
 
-      const uniqueMenuItems = [];
-      menuItemsData.forEach((item) => {
-        if (!uniqueMenuItems.find((x) => x.id === item.id)) {
-          uniqueMenuItems.push(item);
-        }
-      });
-      setMenuItems(uniqueMenuItems);
+      // const uniqueMenuItems = [];
+      // menuItemsData.forEach((item) => {
+      //   if (!uniqueMenuItems.find((x) => x.id === item.id)) {
+      //     uniqueMenuItems.push(item);
+      //   }
+      // });
+      setMenuItems(menuItemsData);
     } catch (error) {
       setMenuItems([]);
       setRestaurant(null);
@@ -57,7 +58,7 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <MenuShimmer />
   ) : (
-    <div className="restaurant-menu w-auto min-h-[80dvh] mt-20">
+    <div className="restaurant-menu w-auto min-h-[80dvh] mt-20 ">
       <div className="restaurant-summary flex justify-center items-center h-[200px] bg-slate-700 text-white">
         <img
           className="restaurant-img w-64 h-[200px] rounded-md"
@@ -73,10 +74,10 @@ const RestaurantMenu = () => {
           </p>
           <div className="restaurant-details max-w-[340px] flex justify-between items-center text-base font-semibold text-inherit mt-[18px] pb-[10px]">
             <div
-              className="restaurant-rating flex items-center rounded-md bg-green-700"
+              className="restaurant-rating flex items-center rounded-md bg-green-700 "
               style={
                 restaurant?.avgRating < 4
-                  ? { backgroundColor: "var(--light-red)" }
+                  ? { backgroundColor: "bg-red-700" }
                   : restaurant?.avgRating === "--"
                   ? { backgroundColor: "white", color: "black" }
                   : { color: "white" }
@@ -97,48 +98,7 @@ const RestaurantMenu = () => {
 
       <div className="restaurant-menu-content flex justify-center">
         <div className="menu-items-container mt-[30px] w-[800px]">
-          <div className="menu-title-wrap p-5">
-            <h3 className="menu-title ">Recommended</h3>
-            <p className="menu-count mt-[14px] text-base leading-5 tracking-[-0.3]">
-              {menuItems.length} ITEMS
-            </p>
-          </div>
-          <div className="menu-items-list flex flex-col justify-center">
-            {menuItems.map((item) => (
-              <div
-                className="menu-item flex justify-between m-h-[250px] p-5 border-b-2"
-                key={item?.id}
-              >
-                <div className="menu-item-details flex flex-col self-start overflow-hidden">
-                  <h3 className="item-title w-3/5">{item?.name}</h3>
-                  <p className="item-cost text-base font-normal mt-1 w-2/5 text-black">
-                    {item?.price > 0
-                      ? new Intl.NumberFormat("en-IN", {
-                          style: "currency",
-                          currency: "INR",
-                        }).format(item?.price / 100)
-                      : " "}
-                  </p>
-                  <p className="item-desc w-3/5 text-base mt-[14px] leading-5 tracking-[-0.3] text-gray-500">
-                    {item?.description}
-                  </p>
-                </div>
-                <div className="menu-img-wrapper flex justify-center flex-col items-end overflow-hidden w-[200px]">
-                  {item?.imageId && (
-                    <img
-                      className="menu-item-img w-[100px] h-[100px] rounded-md"
-                      src={ITEM_IMG_CDN_URL + item?.imageId}
-                      alt={item?.name}
-                    />
-                  )}
-                  <button className="add-btn w-[100px] h-[40px] text-sm shadow-2xl rounded-md bg-white text-green-600 border">
-                    {" "}
-                    ADD +
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ItemsList menuItems={menuItems} />
         </div>
       </div>
     </div>

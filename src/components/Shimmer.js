@@ -4,7 +4,7 @@ import { Shimmer } from "react-shimmer";
 export const MenuShimmer = () => {
   const uniqueId = useId();
   return (
-    <div className="restaurant-menu">
+    <div className="restaurant-menu animate-pulse">
       <div className="restaurant-summary">
         <img className="restaurant-img" />
         <div className="restaurant-summary-details">
