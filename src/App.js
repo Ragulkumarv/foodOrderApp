@@ -1,4 +1,4 @@
-import React, { StrictMode, Suspense, lazy } from "react";
+import React, { StrictMode, Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -13,10 +13,13 @@ import {
 // import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 // import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./components/UserContext";
 
+/**start of lazy load components */
 const ContactUs = lazy(() => import("./components/ContactUs"));
 const About = lazy(() => import("./components/About"));
 const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+/**end of lazy load components */
 
 /*
 header
@@ -35,11 +38,21 @@ footer
 */
 
 const App = () => {
+  const [userData, setUserData] = useState();
+  useEffect(() => {
+    const testUser = {
+      loggedInUser: "Ragul",
+      email: "ragulkumarv333gmail.com",
+    };
+    setUserData(testUser);
+  }, []);
   return (
-    <div className="">
-      <Header />
-      <Outlet />
-    </div>
+    <>
+      <UserContext.Provider value={{ ...userData }}>
+        <Header />
+        <Outlet />
+      </UserContext.Provider>
+    </>
   );
 };
 /** Below commented part is without children */

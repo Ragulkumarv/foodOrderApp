@@ -3,17 +3,17 @@ import { useParams } from "react-router-dom"; // import useParams for read `resI
 import {
   swiggy_menu_api_URL,
   IMG_CDN_URL,
-  ITEM_IMG_CDN_URL,
   MENU_ITEM_TYPE_KEY,
   RESTAURANT_TYPE_KEY,
 } from "../utils/staticData";
 import { MenuShimmer } from "./Shimmer";
-import ItemsList from "./ItemsList";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
   const [restaurant, setRestaurant] = useState(null); // call useState to store the api data in res
   const [menuItems, setMenuItems] = useState([]);
+  const [showIndex, setShowIndex] = useState(null);
 
   useEffect(() => {
     getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
@@ -33,10 +33,10 @@ const RestaurantMenu = () => {
       setRestaurant(restaurantData);
 
       // Set menu item data
-      const menuItemsData = json?.data?.cards
-        .find((x) => x.groupedCard)
-        ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((x) => x.card?.card)
-        ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY);
+      // const menuItemsData = json?.data?.cards
+      //   .find((x) => x.groupedCard)
+      //   ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map((x) => x.card?.card)
+      //   ?.filter((x) => x["@type"] == MENU_ITEM_TYPE_KEY);
       // ?.map((x) => x.itemCards)
       // .flat()
       // .map((x) => x.card?.info) || [];
@@ -47,6 +47,10 @@ const RestaurantMenu = () => {
       //     uniqueMenuItems.push(item);
       //   }
       // });
+      const menuItemsData =
+        json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+          (c) => c.card?.["card"]?.["@type"] === MENU_ITEM_TYPE_KEY
+        );
       setMenuItems(menuItemsData);
     } catch (error) {
       setMenuItems([]);
@@ -98,7 +102,15 @@ const RestaurantMenu = () => {
 
       <div className="restaurant-menu-content flex justify-center">
         <div className="menu-items-container mt-[30px] w-[800px]">
-          <ItemsList menuItems={menuItems} />
+          {menuItems.map((category, index) => (
+            // controlled component
+            <RestaurantCategory
+              key={category?.card?.card.title}
+              data={category?.card?.card}
+              showItems={index === showIndex ? true : false}
+              setShowIndex={() => setShowIndex(index)}
+            />
+          ))}
         </div>
       </div>
     </div>

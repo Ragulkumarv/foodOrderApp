@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../images/logo.webp";
 import { Link } from "react-router-dom";
+import UserContext from "./UserContext";
 
 const Header = () => {
   const [appState, setAppState] = useState("Login");
+  const { loggedInUser } = useContext(UserContext);
   return (
     <header className="flex justify-between">
       <section className="m-4 ml-10">
@@ -35,6 +37,7 @@ const Header = () => {
               </span>
             </div>
           </li>
+          <li>{loggedInUser}</li>
         </ul>
       </section>
     </header>

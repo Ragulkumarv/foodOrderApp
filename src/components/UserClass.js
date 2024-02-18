@@ -36,7 +36,7 @@ class UserClass extends React.Component {
         <h1>Hi !!! {login}</h1>
         <h2>Public Repos {public_repos} </h2>
         <h3>
-          {stream} - {location}
+          {stream} {location}
         </h3>
       </div>
     );
