@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import logo from "../../images/logo.webp";
 import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [appState, setAppState] = useState("Login");
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <header className="flex justify-between">
       <section className="m-4 ml-10">
@@ -22,7 +24,11 @@ const Header = () => {
           <li className="px-4 hover:text-orange-400">
             <Link to={"/contact"}>Contact</Link>
           </li>
-          <li className="px-4 hover:text-orange-400">Cart</li>
+          <li className="px-4 hover:text-orange-400">
+            <Link to={"/cart"}>
+              Cart <span>({cartItems.length} items)</span>
+            </Link>
+          </li>
           <li className="px-4 hover:text-orange-400 cursor-pointer">
             <div>
               <span></span>

@@ -50,7 +50,7 @@ const Body = () => {
                 setFilteredRestaurant(filterData);
               }}
             />
-            <button class="flex items-center justify-center px-5">
+            <button className="flex items-center justify-center px-5">
               <svg
                 class="w-6 h-6"
                 fill="currentColor"
@@ -81,7 +81,7 @@ const Body = () => {
                 setFilteredRestaurant(filterData);
               }}
             />
-            <button class="flex items-center justify-center px-5">
+            <button className="flex items-center justify-center px-5">
               <svg
                 class="w-6 h-6"
                 fill="currentColor"

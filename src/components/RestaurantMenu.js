@@ -102,7 +102,7 @@ const RestaurantMenu = () => {
 
       <div className="restaurant-menu-content flex justify-center">
         <div className="menu-items-container mt-[30px] w-[800px]">
-          {menuItems.map((category, index) => (
+          {menuItems?.map((category, index) => (
             // controlled component
             <RestaurantCategory
               key={category?.card?.card.title}

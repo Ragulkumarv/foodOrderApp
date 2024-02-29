@@ -5,6 +5,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   const handleClick = () => {
     setShowIndex();
   };
+  console.log(data, "ItemsList data");
   return (
     <div>
       {/**Accordion Header */}
