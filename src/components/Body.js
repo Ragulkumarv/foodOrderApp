@@ -36,8 +36,8 @@ const Body = () => {
 
   return filteredRestaurant?.length === 0 ? (
     <>
-      <section className="body">
-        <div className="flex justify-center pb-4">
+      <section className="body pt-60">
+        <div className="flex justify-center pb-4 fixed w-full top-[120px] bg-white left-0 z-10">
           <div className="flex justify-center items-center appearance-none border-2 h-12 p-3 text-stone-900">
             <input
               type="text"
@@ -67,8 +67,8 @@ const Body = () => {
     </>
   ) : (
     <>
-      <section className="body">
-        <div className="flex justify-center pb-4">
+      <section className="body pt-60">
+        <div className="flex justify-center pb-4 fixed w-full top-[120px] bg-white left-0 z-20">
           <div className="flex justify-center items-center appearance-none border-2 h-12 p-3 text-stone-900">
             <input
               type="text"
@@ -93,7 +93,7 @@ const Body = () => {
             </button>
           </div>
         </div>
-        <div className="res-container flex flex-wrap gap-5 justify-center relative">
+        <div className="res-container flex flex-wrap gap-5 justify-center">
           {filteredRestaurant?.map((restaurent) => {
             return (
               <Link

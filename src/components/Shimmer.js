@@ -53,25 +53,17 @@ export const MenuShimmer = () => {
 };
 
 const ShimmerLoader = () => {
-  const uniqueId = useId();
   return (
     <>
-      <section className="body">
-        <div className="search">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search for restaurants and food"
-          />
-        </div>
-        <div className="res-container">
-          {Array(16)
-            .fill("")
-            .map(() => {
-              return <Shimmer key={uniqueId} width={330} height={210} />;
-            })}
-        </div>
-      </section>
+      <div className="flex flex-wrap gap-5 justify-center ">
+        {Array(16)
+          .fill("")
+          .map(() => {
+            return (
+              <div className="h-[10.8rem] w-[16.5rem] m-4 border-0 bg-slate-100 rounded-[10%] animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
+            );
+          })}
+      </div>
     </>
   );
 };
