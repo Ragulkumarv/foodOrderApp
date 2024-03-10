@@ -13,3 +13,5 @@ Key features & tech stack: ✅ Parcel for efficient bundling, ensuring lightning
 🔄 State Management: 🔸 Redux Toolkit for centralized and easily comprehensible state management
 
 #React #Parcel #TailwindCSS #ReduxToolkit #WebDevelopment #FoodOrderingApp
+
+NETLIFY LINK : https://restospot.netlify.app/
