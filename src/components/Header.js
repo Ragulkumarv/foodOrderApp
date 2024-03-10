@@ -16,7 +16,7 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
   return (
-    <header className="flex justify-between fixed w-full top-0 left-0 py-4 bg-white z-10">
+    <header className="flex justify-between fixed w-full top-0 left-0 bg-white z-10">
       <section className="ml-10 mt-4">
         <img src={mainLogo} className="w-24 h-auto rounded-full" alt="logo" />
       </section>

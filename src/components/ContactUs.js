@@ -7,7 +7,7 @@ const ContactUs = () => {
     };
   }, []);
   return (
-    <div className="flex justify-center pb-4 fixed w-full top-[120px] bg-white left-0 z-10">
+    <div className="flex justify-center pb-4 fixed w-full top-[88px] bg-white left-0 z-10">
       <h4>
         Get In <b>Touch</b>
       </h4>

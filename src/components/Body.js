@@ -1,5 +1,5 @@
 import RestaurentCard, { addVegOnlyLabel } from "./RestaurentCard";
-import { API_URL } from "../utils/staticData";
+import { API_URL, generateProxyUrl } from "../utils/staticData";
 import { useEffect, useState } from "react";
 import filteredData from "../utils/config";
 import ShimmerLoader from "./Shimmer";
@@ -18,7 +18,8 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const url = await fetch(API_URL);
+      const resource = generateProxyUrl(API_URL);
+      const url = await fetch(resource);
       const data = await url.json();
       setRestaurantsData(
         data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -36,8 +37,8 @@ const Body = () => {
 
   return filteredRestaurant?.length === 0 ? (
     <>
-      <section className="body pt-60">
-        <div className="flex justify-center pb-4 fixed w-full top-[120px] bg-white left-0 z-10">
+      <section className="body pt-48">
+        <div className="flex justify-center pb-4 fixed w-full top-[88px] bg-white left-0 z-10">
           <div className="flex justify-center items-center appearance-none border-2 h-12 p-3 text-stone-900">
             <input
               type="text"
@@ -67,8 +68,8 @@ const Body = () => {
     </>
   ) : (
     <>
-      <section className="body pt-60">
-        <div className="flex justify-center pb-4 fixed w-full top-[120px] bg-white left-0 z-20">
+      <section className="body pt-48">
+        <div className="flex justify-center pb-4 fixed w-full top-[88px] bg-white left-0 z-20">
           <div className="flex justify-center items-center appearance-none border-2 h-12 p-3 text-stone-900">
             <input
               type="text"
