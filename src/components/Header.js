@@ -3,7 +3,7 @@ import mainLogo from "../../images/mainLogo.webp";
 import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 import { useSelector } from "react-redux";
-import { MdCardTravel, MdOutlineHome } from "react-icons/md";
+import { MdOutlineHome } from "react-icons/md";
 import { MdLogin } from "react-icons/md";
 import { MdLogout } from "react-icons/md";
 import { MdPerson } from "react-icons/md";

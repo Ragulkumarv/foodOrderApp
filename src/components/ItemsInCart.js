@@ -1,15 +1,15 @@
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { removeItem } from "../utils/cartSlice";
 import { ITEM_IMG_CDN_URL } from "../utils/staticData";
+import { MdDelete } from "react-icons/md";
 
-const ItemsList = ({ items }) => {
+const ItemsInCart = ({ items }) => {
   const dispatch = useDispatch();
-  const handleAddItem = (item) => {
-    dispatch(addItem(item));
+  const handleRemoveItem = (item) => {
+    dispatch(removeItem(item));
   };
-
   return (
-    <div>
+    <div className="w-[50%]">
       {items.map((item) => (
         <div key={item?.card?.info?.id}>
           <div className="menu-items-list flex flex-col justify-center shadow-lg">
@@ -40,10 +40,10 @@ const ItemsList = ({ items }) => {
                   />
                 )}
                 <button
-                  onClick={() => handleAddItem(item)}
-                  className="add-btn w-[100px] h-[40px] text-sm shadow-2xl rounded-md bg-white text-green-600 border"
+                  onClick={() => handleRemoveItem(item)}
+                  className="add-btn w-[100px] h-[40px] text-sm shadow-2xl rounded-md bg-white text-green-600 border flex justify-center items-center"
                 >
-                  ADD +
+                  REMOVE <MdDelete size={18} color="grey" />
                 </button>
               </div>
             </div>
@@ -53,4 +53,4 @@ const ItemsList = ({ items }) => {
     </div>
   );
 };
-export default ItemsList;
+export default ItemsInCart;

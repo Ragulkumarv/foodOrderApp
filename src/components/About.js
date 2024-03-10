@@ -4,7 +4,7 @@ import UserContext from "./UserContext";
 const About = () => {
   const { loggedInUser, email } = useContext(UserContext);
   return (
-    <>
+    <div className="flex justify-center pb-4 fixed w-full top-[120px] bg-white left-0 z-10">
       <h3>
         Our mission is to elevate the quality of life for the urban consumer
         with unparalleled convenience. Convenience is what makes us tick. It's
@@ -14,7 +14,7 @@ const About = () => {
       <h1>
         Contact Dev {loggedInUser} @ {email}
       </h1>
-    </>
+    </div>
   );
 };
 export default About;

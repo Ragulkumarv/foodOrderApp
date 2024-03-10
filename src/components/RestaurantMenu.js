@@ -62,7 +62,7 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <MenuShimmer />
   ) : (
-    <div className="restaurant-menu w-auto min-h-[80dvh] mt-20 ">
+    <div className="restaurant-menu w-auto min-h-[80dvh] mt-28">
       <div className="restaurant-summary flex justify-center items-center h-[200px] bg-slate-700 text-white">
         <img
           className="restaurant-img w-64 h-[200px] rounded-md"
