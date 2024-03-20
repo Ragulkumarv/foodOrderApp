@@ -1335,5 +1335,5 @@ export const resDataObj = [
     },
   },
 ];
-export const PROXY_CORS = "https://corsproxy.org/?";
+export const PROXY_CORS = "https://proxy.cors.sh/?";
 export const generateProxyUrl = (URL) => PROXY_CORS + encodeURIComponent(URL);
