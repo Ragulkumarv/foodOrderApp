@@ -1,5 +1,5 @@
 import RestaurentCard, { addVegOnlyLabel } from "./RestaurentCard";
-import { swiggy_api_URL, generateProxyUrl } from "../utils/staticData";
+import { swiggy_api_URL } from "../utils/staticData";
 import { useEffect, useState } from "react";
 import filteredData from "../utils/config";
 import ShimmerLoader from "./Shimmer";
@@ -18,7 +18,6 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      // const resource = generateProxyUrl(API_URL);
       const url = await fetch(swiggy_api_URL);
       const data = await url.json();
       setRestaurantsData(
