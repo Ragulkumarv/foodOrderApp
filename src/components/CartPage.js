@@ -15,7 +15,7 @@ const CartPage = () => {
     dispatch(clearCart());
   };
   return (
-    <div className="pb-4 fixed w-full top-[88px] bg-white left-0 z-10 overflow-y-scroll h-3/4">
+    <div className="pb-4 fixed w-full top-[88px] bg-white left-0 z-10 overflow-y-scroll h-5/6">
       <h1 className="text-center font-bold text-lg">Cart Items</h1>
       {cartItems?.length === 0 ? (
         <div>

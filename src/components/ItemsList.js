@@ -31,7 +31,7 @@ const ItemsList = ({ items }) => {
                   {item?.card?.info?.description}
                 </p>
               </div>
-              <div className="menu-img-wrapper flex justify-center flex-col items-end overflow-hidden w-[200px]">
+              <div className="menu-img-wrapper flex justify-center flex-col items-end overflow-hidden w-[300px]">
                 {item?.card?.info?.imageId && (
                   <img
                     className="menu-item-img w-[100px] h-[100px] rounded-md"

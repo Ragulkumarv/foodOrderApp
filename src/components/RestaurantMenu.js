@@ -48,7 +48,7 @@ const RestaurantMenu = () => {
       //   }
       // });
       const menuItemsData =
-        json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+        json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
           (c) => c.card?.["card"]?.["@type"] === MENU_ITEM_TYPE_KEY
         );
       setMenuItems(menuItemsData);
