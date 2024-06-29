@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Stopwatch from "./StopWatch";
 
 const ContactUs = () => {
   useEffect(() => {
@@ -17,6 +18,9 @@ const ContactUs = () => {
         No. 55 Sy No 8 to 14 I & J Block - Ground Floor, Embassy Tech Village |
         Outer Ring Road, Devarbisanahalli, Varthur Bengaluru - 560130
       </p>
+      <div className="p-5">
+        <Stopwatch />
+      </div>
     </div>
   );
 };

@@ -2,9 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import emptyCart from "../../images/emptyCart.png";
 import { clearCart } from "../utils/cartSlice";
 import ItemsInCart from "./ItemsInCart";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const dispatch = useDispatch();
+  const history = useNavigate();
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems, "cartItems");
   const deliveryCharges = cartItems.reduce((acc, cur) => {
@@ -14,15 +16,25 @@ const CartPage = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  const homeBtnClick = () => {
+    history("/");
+  };
   return (
     <div className="pb-4 fixed w-full top-[88px] bg-white left-0 z-10 overflow-y-scroll h-5/6">
       <h1 className="text-center font-bold text-lg">Cart Items</h1>
       {cartItems?.length === 0 ? (
-        <div>
-          <img src={emptyCart} alt="Empty Cart" className="m-auto" />
+        <div className="flex flex-col justify-center">
+          <img src={emptyCart} alt="Empty Cart" className="m-auto w-[350px]" />
           <h1 className="text-center text-xl">
             Look like you have not added anything! Go ahead & add items to cart
           </h1>
+          <button
+            onClick={() => homeBtnClick()}
+            class="w-[130px] m-auto mt-5 bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded"
+          >
+            Home
+          </button>
         </div>
       ) : (
         <>
