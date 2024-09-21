@@ -52,7 +52,7 @@ const Body = () => {
             />
             <button className="flex items-center justify-center px-5">
               <svg
-                class="w-6 h-6"
+                className="w-6 h-6"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -83,7 +83,7 @@ const Body = () => {
             />
             <button className="flex items-center justify-center px-5">
               <svg
-                class="w-6 h-6"
+                className="w-6 h-6"
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
